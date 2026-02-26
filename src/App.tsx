@@ -30,9 +30,9 @@ const App: React.FC = () => {
   const navLinks = [
     { name: 'The Story', href: '#story' },
     { name: 'The Scholarship', href: '#scholarship' },
-    { name: 'Alumni', href: '#alumni' },
     { name: 'Transparency', href: '#transparency' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Alumni', href: '#alumni' },
   ];
 
   const containerVariants = {
@@ -241,128 +241,77 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Alumni CTA Section */}
-      <section id="alumni" className="py-16 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-[40px] p-8 md:p-16 shadow-sm border border-slate-800 flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <div className="w-16 h-16 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center mb-8">
-                <MessageSquare className="text-blue-400 w-8 h-8" />
-              </div>
-              <h3 className="text-4xl font-serif font-medium text-slate-100 mb-6">Calling All Overfelt Alumni</h3>
-              <p className="text-xl text-slate-400 leading-relaxed mb-8 font-medium">
-                The Royal legacy is built by its people. We want to showcase the incredible success stories of our alumni to inspire the next generation of students.
-              </p>
-              <p className="text-lg text-slate-500 mb-8">
-                Did Overfelt help support your growth? Share your journey with us and help show current students what's possible.
-              </p>
-              <button className="bg-slate-700 text-slate-100 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-600 hover:shadow-xl transition-all active:scale-95 border border-slate-600">
-                Share Your Success Story
-              </button>
-            </div>
-            <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-              <img src="https://raw.githubusercontent.com/iansagabaen/The-Saga-Foundation/main/20020401-chamber%20choir%203.jpg" alt="Alumni 1" className="rounded-2xl shadow-md transform -rotate-2 opacity-80" referrerPolicy="no-referrer" />
-              <img src="https://raw.githubusercontent.com/iansagabaen/The-Saga-Foundation/main/_IMG_0025.JPG" alt="Alumni 2" className="rounded-2xl shadow-md transform rotate-2 translate-y-8 opacity-80" referrerPolicy="no-referrer" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* The Scholarship Section */}
       <section id="scholarship" className="py-16 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold text-blue-400 tracking-widest uppercase mb-4">The Award</h2>
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex flex-col items-center gap-2 px-8 py-6 rounded-[32px] bg-blue-600/10 border border-blue-500/20 text-blue-400 mb-10 shadow-xl shadow-blue-500/5"
+            >
+              <div className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase opacity-80">
+                <Award className="w-4 h-4" />
+                Annual Scholarship Award
+              </div>
+              <div className="text-5xl font-serif font-bold text-slate-100 mt-1 tracking-tight">$1,000</div>
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mt-2">One Recipient Selected Per Year</div>
+            </motion.div>
+            <h2 className="text-sm font-bold text-blue-400 tracking-widest uppercase mb-4">The Opportunity</h2>
             <h3 className="text-4xl font-serif font-medium text-slate-100 mb-6">The Saga Scholarship</h3>
-            <p className="text-lg text-slate-400 font-medium max-w-2xl mx-auto">
-              An annual award dedicated to uplifting Overfelt High School seniors, celebrating heritage while providing a bridge to future success in tech and beyond.
+            <p className="text-lg text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">
+              The Saga Scholarship is an annual award for Overfelt High School seniors who are ready to bridge the gap between their high school journey and their future careers. We focus on celebrating heritage and potential especially for those interested in the tech industry and leadership roles within the East Side San Jose community.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <ShieldCheck className="w-8 h-8 text-blue-400" />,
-                title: "Discipline",
-                desc: "Demonstrated commitment to academic growth and personal development through consistent effort."
-              },
-              {
-                icon: <Heart className="w-8 h-8 text-blue-400" />,
-                title: "Resilience",
-                desc: "The ability to overcome challenges and persist in the face of adversity, mirroring the migrant experience."
-              },
-              {
-                icon: <Users className="w-8 h-8 text-blue-400" />,
-                title: "Leadership",
-                desc: "A track record of serving others and taking initiative to improve the East Side community."
-              }
-            ].map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-slate-800/30 p-10 rounded-3xl shadow-sm border border-slate-800 hover:bg-slate-800/50 hover:-translate-y-2 transition-all"
-              >
-                <div className="mb-6 p-4 bg-[#0f172a] w-fit rounded-2xl border border-slate-800 shadow-sm">
-                  {item.icon}
-                </div>
-                <h4 className="text-2xl font-serif font-medium text-slate-100 mb-4">{item.title}</h4>
-                <p className="text-slate-400 leading-relaxed font-medium">{item.desc}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-slate-800/30 p-10 rounded-3xl border border-slate-800 hover:bg-slate-800/50 transition-all"
+            >
+              <div className="mb-6 p-4 bg-[#0f172a] w-fit rounded-2xl border border-slate-800 shadow-sm">
+                <Users className="w-8 h-8 text-blue-400" />
+              </div>
+              <h4 className="text-2xl font-serif font-medium text-slate-100 mb-4">Who Should Apply</h4>
+              <p className="text-slate-400 leading-relaxed font-medium">
+                You are a current senior at Overfelt High School with a cumulative GPA of at least 3.0. While we have a special mission to support students of Filipino-American heritage, this scholarship is open to every graduating Royal. We are looking for students who show a commitment to academic growth and have a history of overcoming challenges through resilience.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-slate-800/30 p-10 rounded-3xl border border-slate-800 hover:bg-slate-800/50 transition-all"
+            >
+              <div className="mb-6 p-4 bg-[#0f172a] w-fit rounded-2xl border border-slate-800 shadow-sm">
+                <Sparkles className="w-8 h-8 text-blue-400" />
+              </div>
+              <h4 className="text-2xl font-serif font-medium text-slate-100 mb-4">What You Receive</h4>
+              <p className="text-slate-400 leading-relaxed font-medium">
+                Recipients get more than just financial support for college. You will gain access to career guidance from professionals working at major technology firms in Silicon Valley. This ensures you have a network to lean on as you navigate your post-secondary education.
+              </p>
+            </motion.div>
           </div>
 
-          <div className="mt-12 grid lg:grid-cols-2 gap-12 text-left">
-            <div className="bg-slate-800/20 p-8 rounded-3xl border border-slate-800">
-              <h4 className="text-2xl font-serif font-medium text-slate-100 mb-6">Eligibility</h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-400 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-1 shrink-0" />
-                  <span>Current Overfelt High School Senior</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-400 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-1 shrink-0" />
-                  <span>Minimum 3.0 Cumulative GPA</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-400 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-1 shrink-0" />
-                  <span>While established with a mission to uplift Filipino American heritage, this scholarship is proudly open to all graduating Overfelt students.</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-slate-800/20 p-8 rounded-3xl border border-slate-800">
-              <h4 className="text-2xl font-serif font-medium text-slate-100 mb-6">Benefits & Process</h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-400 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-1 shrink-0" />
-                  <span>Career guidance from seasoned professionals at leading technology firms.</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-400 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-1 shrink-0" />
-                  <span>Impartial selection handled by the Overfelt School Committee</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-400 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-1 shrink-0" />
-                  <span>Financial support for post-secondary education</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-10 bg-blue-600/10 border border-blue-500/20 rounded-[40px] p-12 text-slate-100 relative overflow-hidden">
+          <div className="mt-12 bg-blue-600/10 border border-blue-500/20 rounded-[40px] p-12 text-slate-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="max-w-xl">
-                <h4 className="text-3xl font-serif font-medium mb-4 text-slate-100">Ready to apply?</h4>
+                <h4 className="text-3xl font-serif font-medium mb-4 text-slate-100">How to Get Started</h4>
                 <p className="text-slate-400 text-lg font-medium">
-                  Applications for the 2026 academic year will open in early Q1 2026. We are working closely with Overfelt leadership to integrate this award into the existing scholarship cycle.
+                  Applications for the 2026 academic year will begin in early 2026. We are currently syncing our timeline with the official Overfelt scholarship cycle to make the process as easy as possible for you. If you want to be the first to know when the portal opens, use the contact form below to send us an inquiry.
                 </p>
               </div>
-              <button className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20">
-                Inquire via Email
-              </button>
+              <a 
+                href="#donate"
+                className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20 inline-block text-center whitespace-nowrap"
+              >
+                Contact Us
+              </a>
             </div>
           </div>
         </div>
@@ -467,6 +416,36 @@ const App: React.FC = () => {
                   </button>
                 </motion.div>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Alumni CTA Section */}
+      <section id="alumni" className="py-16 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-800/30 backdrop-blur-sm rounded-[40px] p-8 md:p-16 shadow-sm border border-slate-800 flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <div className="w-16 h-16 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center mb-8">
+                <MessageSquare className="text-blue-400 w-8 h-8" />
+              </div>
+              <h3 className="text-4xl font-serif font-medium text-slate-100 mb-6">Calling All Overfelt Alumni</h3>
+              <p className="text-xl text-slate-400 leading-relaxed mb-8 font-medium">
+                The Royal legacy is built by its people. We want to showcase the incredible success stories of our alumni to inspire the next generation of students.
+              </p>
+              <p className="text-lg text-slate-500 mb-8">
+                Did Overfelt help support your growth? Share your journey with us and help show current students what's possible.
+              </p>
+              <a 
+                href="#donate"
+                className="inline-flex items-center justify-center bg-slate-700 text-slate-100 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-600 hover:shadow-xl transition-all active:scale-95 border border-slate-600"
+              >
+                Share Your Success Story
+              </a>
+            </div>
+            <div className="lg:w-1/2 grid grid-cols-2 gap-4">
+              <img src="https://raw.githubusercontent.com/iansagabaen/The-Saga-Foundation/main/20020401-chamber%20choir%203.jpg" alt="Alumni 1" className="rounded-2xl shadow-md transform -rotate-2 opacity-80" referrerPolicy="no-referrer" />
+              <img src="https://raw.githubusercontent.com/iansagabaen/The-Saga-Foundation/main/_IMG_0025.JPG" alt="Alumni 2" className="rounded-2xl shadow-md transform rotate-2 translate-y-8 opacity-80" referrerPolicy="no-referrer" />
             </div>
           </div>
         </div>
