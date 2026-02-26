@@ -413,18 +413,6 @@ const App: React.FC = () => {
               <p className="text-slate-400 text-lg mb-10 leading-relaxed font-medium">
                 Whether you are an Overfelt alumnus, a community member, or a friend of the Sagabaen family, your support helps us scale our impact and support more students each year.
               </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-500 font-bold uppercase tracking-tight">Email Inquiry</div>
-                    <div className="font-medium text-lg text-slate-200">hello@sagafoundation.org</div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div id="donate" className="bg-slate-800/50 backdrop-blur-md text-slate-100 p-10 rounded-[40px] border border-slate-700">
